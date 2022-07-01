@@ -27,7 +27,7 @@ func main() {
 	lambda.Start(handler)
 }
 
-const tableName = "LambdaInGoUser"
+const tableName = "go-serverless-yt"
 
 func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	switch req.HTTPMethod {
@@ -39,7 +39,7 @@ func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse
 		return handlers.UpdateUser(req, tableName, dynaClient)
 	case "DELETE":
 		return handlers.DeleteUser(req, tableName, dynaClient)
-	}
 	default:
 		return handlers.UnhandledMethod()
+	}
 }
